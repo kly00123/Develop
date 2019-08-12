@@ -28,4 +28,4 @@ app.get('/hero_query', function(req, res) {
          if(JSON.stringify(str).indexOf.JSON.stringify(req)!==-1);
 
         }
-});
+})
