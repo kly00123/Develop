@@ -1,1 +1,33 @@
-<text>11111</text>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> 水人详情页面</title>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+</head>
+<body>
+<div id="box">
+	<input type="button" @click="post()" value="点我异步获取数据(Post)">
+</div>
+<script type = "text/javascript">
+window.onload = function(){
+	var vm = new Vue({
+	    el:'#box',
+	    data:{
+	        msg:'Hello World!',
+	    },
+	    methods:{
+	        post:function(){
+	            this.$http.post('http://127.0.0.1:3000/herocheck/herocheck',{hero_name:"SF"},{emulateJSON:true}).then(function(res){
+                    document.write(res.body);    
+                },function(res){
+                    console.log(res.status);
+                });
+	        }
+	    }
+	});
+}
+</script>
+</body>
+</html>

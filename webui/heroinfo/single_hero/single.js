@@ -1,3 +1,10 @@
+var express = require("express");
+var router = express.Router();
+var fs = require('fs')
+var path = require('path');
+var app = express();
+var mysql  = require('mysql');  
+
 var connection = mysql.createConnection({
     host: '148.70.173.75',
     user: 'root',
@@ -12,3 +19,4 @@ var connection = mysql.createConnection({
       return;
     }
 }) 
+console.log(result);
