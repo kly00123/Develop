@@ -1,9 +1,11 @@
 {
-   "user1": {
+   "herolist":[ 
+      {
       "name": "SF",
       "skill": "sandstorm",
       "profession": "assision",
       "id": 1,
+      "pay":3,
       "level": [
          {
             "level": "1",
@@ -22,11 +24,12 @@
          }
       ]
    },
-   "user2": {
+    {
       "name": "TS",
       "skill": "storm",
       "profession": "fly",
       "id": 2,
+      "pay":2,
       "level": [
          {
             "level": 1,
@@ -45,11 +48,12 @@
          }
       ]
    },
-   "user3": {
-      "name": "SA",
+   {
+      "name": "TA",
       "skill": "hide",
       "profession": "assision",
       "id": 3,
+      "pay":4,
       "level": [
          {
             "level": 1,
@@ -68,4 +72,5 @@
          }
       ]
    }
+ ]
 }
