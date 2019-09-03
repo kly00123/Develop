@@ -1,0 +1,54 @@
+{
+  "spirit":{
+      "term":[
+          {
+              "term1":"need tree term-hero",
+              "effet1":"increasd all hero 30hp"
+          },
+          {
+              "term2":"need four term-hero",
+              "effet2":"increasd all hero 100hp"
+          }
+      ],
+      "hero":"sa tk nec sf"
+  },
+  "dragon":{
+    "term":[
+        {
+            "term1":"need tree term-hero",
+            "effet1":"increasd all hero 30hp"
+        },
+        {
+            "term2":"need four term-hero",
+            "effet2":"increasd all hero 100hp"
+        }
+    ],
+    "hero":"sa tk nec sf"
+},
+"human":{
+    "term":[
+        {
+            "term1":"need tree term-hero",
+            "effet1":"increasd all hero 30hp"
+        },
+        {
+            "term2":"need four term-hero",
+            "effet2":"increasd all hero 100hp"
+        }
+    ],
+    "hero":"sa tk nec sf"
+},
+"ghost":{
+    "term":[
+        {
+            "term1":"need tree term-hero",
+            "effet1":"increasd all hero 30hp"
+        },
+        {
+            "term2":"need four term-hero",
+            "effet2":"increasd all hero 100hp"
+        }
+    ],
+    "hero":"sa tk nec sf"
+ }
+}
