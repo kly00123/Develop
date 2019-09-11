@@ -14,7 +14,6 @@
 			width: 100%;
 			border-collapse: collapse;
 		}
-
 		#customers td,
 		#customers th {
 			font-size: 1em;
@@ -41,33 +40,25 @@
 <body>
 	<div class="container">
 		<div id="app">
-				<div v-for="item in info">
-						<table id="customers">
-							<div class = "sm_jn mt30">
-								<div class = "sm_jn_menu">
-									<a class>英雄技能</a>
-									<a class="active">种族技能</a>
-									<a class>职业技能</a>
-								</div>
-								<div class = "sm_jn_con">
-									<div class="clearfix" style="display:none;">
-										<p>1111111</p>
-										</div>
-										<div class="clearfix" style="display:block;">
-											<p>2222222222</p>
-											</div>
-											<div class="clearfix" style="display:none;">
-												<p>3333333</p>
-												</div>
-								</div>
-							</div>
+				<img src="../../images/dota2.jpg">
+			<div v-for="item in info">
+				<div>
+           <h2 class="title_color"></h2>
+				</div>
+				<table id="customers">
+					<div class="title_color">
+						<h2>英雄介绍</h2>
+					</div>
+						<p>名称：{{item.hero_name}}</p>
+						<p>种族：{{item.race}}</p>
+					<h2 class="title_color">英雄属性</h2>
 					<tr>
 						<td rowspan="2">一级</td>
 						<td>血量</td>
 						<td>蓝量</td>
 						<td>攻击力</td>
 						<td>防御力</td>
-						<td>价格</td>						
+						<td>价格</td>
 					</tr>
 					<tr class="alt">
 						<td>{{item.lvl_1_hp}}</td>
@@ -77,37 +68,37 @@
 						<td>{{item.pay}}</td>
 					</tr>
 					<tr>
-							<td rowspan="2">二级</td>
-							<td>血量</td>
-							<td>蓝量</td>
-							<td>攻击力</td>
-							<td>防御力</td>
-							<td>价格</td>						
-						</tr>
-						<tr class="alt">
-							<td>{{item.lvl_2_hp}}</td>
-							<td>{{item.lvl_2_mp}}</td>
-							<td>{{item.hero_attack_2}}</td>
-							<td>{{item.hero_defence_2}}</td>
-							<td>{{item.pay}}</td>
-						</tr>
-						<tr>
-								<td rowspan="2">三级</td>
-								<td>血量</td>
-								<td>蓝量</td>
-								<td>攻击力</td>
-								<td>防御力</td>
-								<td>价格</td>						
-							</tr>
-							<tr class="alt">
-								<td>{{item.lvl_3_hp}}</td>
-								<td>{{item.lvl_3_mp}}</td>
-								<td>{{item.hero_attack_3}}</td>
-								<td>{{item.hero_defence_3}}</td>
-								<td>{{item.pay}}</td>
-							</tr>
+						<td rowspan="2">二级</td>
+						<td>血量</td>
+						<td>蓝量</td>
+						<td>攻击力</td>
+						<td>防御力</td>
+						<td>价格</td>
+					</tr>
+					<tr class="alt">
+						<td>{{item.lvl_2_hp}}</td>
+						<td>{{item.lvl_2_mp}}</td>
+						<td>{{item.hero_attack_2}}</td>
+						<td>{{item.hero_defence_2}}</td>
+						<td>{{item.pay}}</td>
+					</tr>
+					<tr>
+						<td rowspan="2">三级</td>
+						<td>血量</td>
+						<td>蓝量</td>
+						<td>攻击力</td>
+						<td>防御力</td>
+						<td>价格</td>
+					</tr>
+					<tr class="alt">
+						<td>{{item.lvl_3_hp}}</td>
+						<td>{{item.lvl_3_mp}}</td>
+						<td>{{item.hero_attack_3}}</td>
+						<td>{{item.hero_defence_3}}</td>
+						<td>{{item.pay}}</td>
+					</tr>
 				</table>
-				</div>
+			</div>
 		</div>
 
 	</div>
