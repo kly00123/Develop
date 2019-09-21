@@ -1,0 +1,21 @@
+table {
+    border: 1px solid black;
+}
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+}
+td {
+    padding-left:80px;
+}
+#dv {
+	width:100px;
+	height:100px;
+	background-color:blue;
+	border-radius:50%;
+	position:absolute;
+}

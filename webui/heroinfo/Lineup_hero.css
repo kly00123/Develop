@@ -1,0 +1,38 @@
+.row{
+    width: 100px;   
+    height: 100px;   
+    background-color:red;  
+    border-radius: 50%;  
+    -moz-border-radius: 50%;      
+    -webkit-border-radius: 50%;
+}
+#boxx :nth-child(1){
+    width: 100px;
+    height: 100px;
+    background: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#boxx :nth-child(2){
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.left{
+    padding-top:2px;
+}
+.right{
+    padding-right:2px;
+}
+.drag {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+

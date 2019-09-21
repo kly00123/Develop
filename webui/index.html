@@ -5,85 +5,163 @@
     <title>加油写出自走棋！！！</title>
     <meta charet="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        @media screen and (min-width:768px) {
+            body {
+                background-color: red;
+            }
+        }
+
+        @media screen and (min-width:992px) {
+            body {
+                background-color: rgb(43, 168, 226);
+            }
+        }
+
+        @media screen and (min-width:1200px) {
+            body {
+                background-color: saddlebrown;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!--页面顶部-->
-    <div id="top">
-        <div class="container">
-        </div>
-    </div>
     <!--页面头部-->
     <div id="header">
-        <div class="container">
-            <div class="header_left left">
-                <div class="xlwb"></div>
-                <div class="txwb"></div>
-                <div class="tel">800-820-8820</div>
-            </div>
-            <ul class="right">
-                <li><a href="#">登录</a></li>
-                <li><a href="#">注册</a></li>
-                <li><a href="#">积分兑换</a></li>
-                <li><a href="#">帮助中心</a></li>
-                <li class="car"><span></span><a href="#">购物车</a></li>
+        <div class="menu">
+            <ul>
+                <li><a class="hide" href="./index.html">
+                        <h2>首页</h2>
+                    </a>
+                </li>
+                <li><a class="hide" href="#">
+                        <h2>游戏资料</h2>
+                    </a>
+                    <ul>
+                        <li><a href="#">
+                                <h2>新闻资讯</h2>
+                            </a></li>
+                        <li><a href="#">
+                                <h2>资料库</h2>
+                            </a></li>
+                        <li><a href="#">
+                                <h2>攻略中心</h2>
+                            </a></li>
+                        <li><a href="#">
+                                <h2>新人指南</h2>
+                            </a></li>
+                    </ul>
+
+                </li>
+                <li><a class="hide" href="#">
+                        <h2>世界观</h2>
+                    </a>
+
+                    <ul>
+                        <li><a href="#">
+                                <h2>种族</h2>
+                            </a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
     <!--页面导航栏-->
     <div id="nav">
-        <div class="container">
-
-        </div>
+        <img src="images/hengfu.png ">
     </div>
     <!--页面banner-->
-    <div id="banner">
-        <div class="container">
-
-        </div>
-    </div>
-    <!--页面主体 包括阵容推敲 新手攻略 什么时候升级人口等等-->
-    <div id="total">
-        <div class="container">
-            <div class="total_top">
-                <div>
-                    <h1>总篇章</h1>
+    <div id="container">
+        <div id="total">
+            <div class="total_left">
+                <div class="head">
+                    <div>
+                        <ul>
+                            <li class="nono"><a href="#"><h2>公告</h2></a></li>
+                            <li class="nono"><a href="#"><h2>新闻</h2></a></li>
+                            <li class="nono"><a href="#"><h2>热门</h2></a></li>
+                        </ul>
+                        </div>
+            </div>
+            <div>
+                <text>1111</text>
                 </div>
-                <ul>
-                    <li>
-                        <img src="images/yx.jpg">
-                        <h2><a href="./heroinfo/all_hero.html">英雄概览</a></h2>
-                    </li>
-                    <li>
-                        <img src="images/jiban.jpg">
-                        <h2>羁绊查询</h2>
-                    </li>
-                    <li>
-                        <img src="images/zhenrong.jpg">
-                        <h2>阵容查询</h2>
-                    </li>
-                    <li>
-                        <img src="images/fangzhen.jpg">
-                        <h2>阵容仿真</h2>
-                    </li>
-                </ul>
+            </div>
+            <div class="total_right">
+                <div class="autoplay">
+                    <style type="text/css">
+                        .imgBox {
+                            width: 113%;
+                            margin: 0 auto;
+                        }
+
+                        .imgBox img {
+                            width: 80%;
+                            margin: 0 auto;
+                            padding-top: 5px;
+                            padding-right: 74px;
+                        }
+
+                        .img1 {
+                            display: block;
+                        }
+
+                        .img2 {
+                            display: none;
+                        }
+
+                        .img3 {
+                            display: none;
+                        }
+                    </style>
+                    <div class="imgBox">
+                        <a href="./heroinfo/all_hero.html"><img class="img-slide img1" src="./images/lunbo1.png"
+                                alt="1"></a>
+                        <img class="img-slide img2" src="./images/lunbo2.png" alt="2">
+                        <img class="img-slide img3" src="./images/lunbo3.png" alt="3">
+                    </div>
+                    <script type="text/javascript">
+                        var index = 0;
+                        //改变图片
+                        function ChangeImg() {
+                            index++;
+                            var a = document.getElementsByClassName("img-slide");
+                            if (index >= a.length) index = 0;
+                            for (var i = 0; i < a.length; i++) {
+                                a[i].style.display = 'none';
+                            }
+                            a[index].style.display = 'block';
+                        }
+                        //设置定时器，每隔两秒切换一张图片
+                        setInterval(ChangeImg, 3000);
+                    </script>
+                </div>
+                <div class="mess">
+                    <ul>
+                        <li>
+                            <h2><a href="./heroinfo/all_hero.html"><img src="images/yx.jpg">英雄概览</a></h2>
+                        </li>
+                        <li>
+                            <h2><a href="./heroinfo/fetters_hero.html"><img src="images/jiban.jpg">羁绊查询</a></h2>
+                        </li>
+                        <li>
+                            <h2><a href="./heroinfo/Lineup_hero.html"><img src="images/zhenrong.jpg">阵容查询</a></h2>
+                        </li>
+                        <li>
+                            <h2><a href="./heroinfo/Lineup_query.html"><img src="images/fangzhen.jpg">阵容仿真</a></h2>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
     <!--页面精选阵容推荐-->
     <div id="accessory">
-        <div class="container">
-
-        </div>
-    </div>
-    <!--页面服务部分-->
-    <div id="server">
-        <div class="container">
-
-        </div>
-    </div>
-    <!--页面类似售后部分-->
-    <div id="after">
         <div class="container">
 
         </div>
