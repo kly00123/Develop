@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+<script src="https://unpkg.com/vue-router"></script>
+<script src="../query_check/query_check.js"></script>
+<link rel="stylesheet" type="text/css" href="query_check.css">
+<div id="app">
+    <table>
+        <tr>
+            <th>英雄ID</th>
+            <th>英雄名称</th>
+            <th>英雄种族</th>
+            <th>英雄价格</th>
+            <th>购买数量</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="hero in info">
+            <td>{{ hero.id }}</td>
+            <td>{{ hero.hero_name }}</td>
+            <div class="row">
+            <td>{{ hero.race }}</td>
+            </div>
+            <td>{{ hero.pay }}</td>
+            <td>
+                <button v-bind:disabled="hero.count === 0" v-on:click="hero.count-=1">-</button>
+                {{hero.count}}
+                <button v-on:click="hero.count+=1">+</button>
+            </td>
+            <td>
+                <button v-on:click="hero.count=0">移除</button>
+            </td>
+        </tr>
+    </table>
+    总价:{{totalPrice()}}
+    </div>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    info: null
+                }
+            },
+            methods: {
+                totalPrice: function () {
+                    var totalP = 0;
+            
+                    for (var i = 0; i < this.info.length; i++) {
+                        console.log(this.info);
+                        totalP += this.info[i].pay * this.info[i].count;
+                    }
+                    return totalP;
+                }
+            },
+            mounted() {
+                axios
+                    .post('http://127.0.0.1:3000/herocheck/check')
+                    .then(response => (this.info = response.data))
+                    .catch(function (error) { // 请求失败处理
+                        console.log(error);
+                    });
+            }
+
+        })
+    </script>
+    </html>
