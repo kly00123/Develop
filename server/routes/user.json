@@ -1,0 +1,76 @@
+{
+   "herolist":[ 
+      {
+      "name": "SF",
+      "skill": "sandstorm",
+      "profession": "assision",
+      "id": 1,
+      "pay":3,
+      "level": [
+         {
+            "level": "1",
+            "skill_scope": "300",
+            "skill_total":"800"
+         },
+         {
+            "level": "2",
+            "skill_scope": "400",
+            "skill_total":"800"
+         },
+         {
+            "level": "3",
+            "skill_scope": "500",
+            "skill_total":"800"
+         }
+      ]
+   },
+    {
+      "name": "TS",
+      "skill": "storm",
+      "profession": "fly",
+      "id": 2,
+      "pay":2,
+      "level": [
+         {
+            "level": 1,
+            "skill_scope": 100,
+            "skill_total":"800"
+         },
+         {
+            "level": 2,
+            "skill_scope": 200,
+            "skill_total":"800"
+         },
+         {
+            "level": 3,
+            "skill_scope": 300,
+            "skill_total":"800"
+         }
+      ]
+   },
+   {
+      "name": "TA",
+      "skill": "hide",
+      "profession": "assision",
+      "id": 3,
+      "pay":4,
+      "level": [
+         {
+            "level": 1,
+            "skill_scope": 30,
+            "skill_total":"800"
+         },
+         {
+            "level": 2,
+            "skill_scope": 40,
+            "skill_total":"800"
+         },
+         {
+            "level": 3,
+            "skill_scope": 50,
+            "skill_total":"800"
+         }
+      ]
+   }
+ ]
+}
