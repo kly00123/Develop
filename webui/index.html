@@ -1,177 +1,230 @@
+
+
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="./css/index.css" rel="stylesheet" type="text/css" />
+    <title>加油写出自走棋</title>
 
-<head>
-    <title>加油写出自走棋！！！</title>
-    <meta charet="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <style>
-        body {
-            background-color: aqua;
-        }
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
-        @media screen and (min-width:768px) {
-            body {
-                background-color: red;
-            }
-        }
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-        @media screen and (min-width:992px) {
-            body {
-                background-color: rgb(43, 168, 226);
-            }
-        }
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
-        @media screen and (min-width:1200px) {
-            body {
-                background-color: saddlebrown;
-            }
-        }
-    </style>
-</head>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<body>
-    <!--页面头部-->
-    <div id="header">
-        <div class="menu">
-            <ul>
-                <li><a class="hide" href="./index.html">
-                        <h2>首页</h2>
-                    </a>
-                </li>
-                <li><a class="hide" href="#">
-                        <h2>游戏资料</h2>
-                    </a>
-                    <ul>
-                        <li><a href="#">
-                                <h2>新闻资讯</h2>
-                            </a></li>
-                        <li><a href="#">
-                                <h2>资料库</h2>
-                            </a></li>
-                        <li><a href="#">
-                                <h2>攻略中心</h2>
-                            </a></li>
-                        <li><a href="#">
-                                <h2>新人指南</h2>
-                            </a></li>
-                    </ul>
-
-                </li>
-                <li><a class="hide" href="#">
-                        <h2>世界观</h2>
-                    </a>
-
-                    <ul>
-                        <li><a href="#">
-                                <h2>种族</h2>
-                            </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <!--页面导航栏-->
-    <div id="nav">
-        <img src="images/hengfu.png ">
-    </div>
-    <!--页面banner-->
-    <div id="container">
-        <div id="total">
-            <div class="total_left">
-                <div class="head">
-                    <div>
-                        <ul>
-                            <li class="nono"><a href="#"><h2>公告</h2></a></li>
-                            <li class="nono"><a href="#"><h2>新闻</h2></a></li>
-                            <li class="nono"><a href="#"><h2>热门</h2></a></li>
-                        </ul>
-                        </div>
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body class="bodycolor">
+    <div class="navbar-wrapper">
+      <div class="container">
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">自走棋</a>
             </div>
-            <div>
-                <text>1111</text>
-                </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">首页</a></li>
+                <li><a href="#about">资料库</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">游戏资料 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">新闻资讯</a></li>
+                    <li><a href="#">资料库</a></li>
+                    <li><a href="#">攻略中心</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">世界观</li>
+                    <li><a href="#">种族</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-            <div class="total_right">
-                <div class="autoplay">
-                    <style type="text/css">
-                        .imgBox {
-                            width: 113%;
-                            margin: 0 auto;
-                        }
+          </div>
+        </nav>
 
-                        .imgBox img {
-                            width: 80%;
-                            margin: 0 auto;
-                            padding-top: 5px;
-                            padding-right: 74px;
-                        }
+      </div>
+    </div>
 
-                        .img1 {
-                            display: block;
-                        }
 
-                        .img2 {
-                            display: none;
-                        }
-
-                        .img3 {
-                            display: none;
-                        }
-                    </style>
-                    <div class="imgBox">
-                        <a href="./heroinfo/all_hero.html"><img class="img-slide img1" src="./images/lunbo1.png"
-                                alt="1"></a>
-                        <img class="img-slide img2" src="./images/lunbo2.png" alt="2">
-                        <img class="img-slide img3" src="./images/lunbo3.png" alt="3">
-                    </div>
-                    <script type="text/javascript">
-                        var index = 0;
-                        //改变图片
-                        function ChangeImg() {
-                            index++;
-                            var a = document.getElementsByClassName("img-slide");
-                            if (index >= a.length) index = 0;
-                            for (var i = 0; i < a.length; i++) {
-                                a[i].style.display = 'none';
-                            }
-                            a[index].style.display = 'block';
-                        }
-                        //设置定时器，每隔两秒切换一张图片
-                        setInterval(ChangeImg, 3000);
-                    </script>
-                </div>
-                <div class="mess">
-                    <ul>
-                        <li>
-                            <h2><a href="./heroinfo/all_hero.html"><img src="images/yx.jpg">英雄概览</a></h2>
-                        </li>
-                        <li>
-                            <h2><a href="./heroinfo/fetters_hero.html"><img src="images/jiban.jpg">羁绊查询</a></h2>
-                        </li>
-                        <li>
-                            <h2><a href="./heroinfo/Lineup_hero.html"><img src="images/zhenrong.jpg">阵容查询</a></h2>
-                        </li>
-                        <li>
-                            <h2><a href="./heroinfo/Lineup_query.html"><img src="images/fangzhen.jpg">阵容仿真</a></h2>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="images/2.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>优先阵容</h1>
+              <p>Note: 主播们在玩自走棋时，无论什么局势，总能找到一套不错的阵容，是他们运气太好？ 其实不然，核心原因，是主播们超高的<code>运营技巧</code></p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
             </div>
+          </div>
         </div>
-    </div>
-    <!--页面精选阵容推荐-->
-    <div id="accessory">
-        <div class="container">
-
+        <div class="item">
+          <img class="second-slide" src="images/lunbo1.png" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>合理搭配</h1>
+              <p>在刷出同样棋子的情况下，好的运营意味更好的经济，那么很有可能每回合就比对手多赚一块钱，而多的这些钱，就是你的核心竞争力，它让你更容易凑到理想阵容，从而快速成型。</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+            </div>
+          </div>
         </div>
-    </div>
-    <!--页面底部-->
-    <div id="footer">
-        <div class="container">
-
+        <div class="item">
+          <img class="third-slide" src="images/lunbo2.png" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>阵容羁绊</h1>
+              <p>运营的核心，是无论怎样的开局，都最终找到合适的路线，并在不断节奏的情况下使经济以最快的速度增长。</p>
+              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+            </div>
+          </div>
         </div>
-    </div>
-</body>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
 
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-3">
+          <img class="img-circle" src="./images/yx.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>英雄概览</h2>
+          <p>局内经济即局内获得的金币，《自走棋》每局对战开始后，每位棋手均拥有一个金币，战开之后随对局进行，将持续获得金币。
+
+            本场对局结束时，本局积累的所有金币都将自动消失。</p>
+          <p><a class="btn btn-default" href="./heroinfo/all_hero.html" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+          <img class="img-circle" src="./images/zhanshi.png" alt="Generic placeholder image" width="140" height="140">
+          <h2>羁绊查询</h2>
+          <p>基础，即基础收入，这是每个回合必得收入。在1-5回合时，即第一回合给你1金币，金币金币,第二回合给你2金币，直到第五回合给你5金币；而在五回合后，从第六回合起玩家将会固定收获5金币。</p>
+          <p><a class="btn btn-default" href="./heroinfo/fetters_hero.html" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+          <img class="img-circle" src="./images/zhenrong.jpg" alt="Generic placeholder image" width="140" height="140">
+          <h2>阵容查询</h2>
+          <p>胜利，即胜利收入，这一部分收入是根据战斗回合的胜利与否来进行判定：即当你成功防守敌人进攻后，你会获得1金币；而当你防守失败后，你不会获得金币。
+
+            野怪波次不会计入胜利收入。</p>
+          <p><a class="btn btn-default" href="./heroinfo/Lineup_hero.html" role="button">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-3">
+            <img class="img-circle" src="./images/yx.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>阵容仿真</h2>
+            <p>棋子出售，当出售自己的棋子时（1星棋子均会原价返还； 2星棋子仅白色品质会原价返还；3星棋子出售时均会折损部分金币）
+
+                值得一提的是，即使在战斗阶段，己方等待区的棋子依旧可以被出售。</p>
+            <p><a class="btn btn-default" href="./heroinfo/Lineup_query.html" role="button">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="./images/gonggao.jpg" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="./images/gengxin.jpg" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="./images/neice.jpg" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
 </html>
