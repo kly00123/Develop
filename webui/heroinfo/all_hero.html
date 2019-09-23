@@ -1,35 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
-    <title>英雄概览</title>
-    <meta charet="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/index.css">
-    <script src="all_hero.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>英雄详情</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="all_hero.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
 </head>
+<!-- NAVBAR
+================================================== -->
+
 <body>
-        <div id="total">
+    <div class="navbar-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-static-top">
                 <div class="container">
-                    <div class="total_top">
-                        <div>
-                            <h1>英雄概览</h1>
-                        </div>
-                        <ul>
-                            <li>
-                                <img src="../images/mor.jpg">
-                                <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">自走棋</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="#about">资料库</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">游戏资料 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">新闻资讯</a></li>
+                                    <li><a href="#">资料库</a></li>
+                                    <li><a href="#">攻略中心</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header">世界观</li>
+                                    <li><a href="#">种族</a></li>
+                                </ul>
                             </li>
-                            <li>
-                                <img src="../images/jugg.png">
-                                <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
-                            </li>
-                            <li>
-                                    <img src="../images/zhanshi.png">
-                                    <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
-                                </li>
                         </ul>
                     </div>
                 </div>
+            </nav>
+            <div class="mid">
+                <text><h2>英雄查询</h2></text>
             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="rolw">
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/mor.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/jugg.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/zhanshi.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/diangou.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/jiban.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/total.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
+        </div>
+    </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/yx.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/zhanshi.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/zhenrong.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/TA.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/fangzhen.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/lunbo1.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/lunbo1.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/lunbo2.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/lunbo3.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/lunbo3.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/neice.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/shouren.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/total.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=1">影魔</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/yingxiong.jpg" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=2">圣堂刺客</a></h3>
+        </div>
+        <div class="col-lg-2">
+            <img class="img-circle" src="../images/zhanshi.png" alt="Generic placeholder image" width="100" height="100">
+            <h3><a href="./single_hero/single.html?hero_id=3">蓝猫</a></h3>
+        </div>
+
+
+
+
+
+    </div><!-- /.row -->
+
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+
+        </div><!-- /.container -->
+
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
 
 </html>

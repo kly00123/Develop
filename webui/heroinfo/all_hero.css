@@ -1,0 +1,23 @@
+*{
+ 
+}
+.navbar-wrapper{
+    height:120px;
+    background-color:saddlebrown;
+}
+.row{ 
+    text-align: center;
+    background-color:rgb(53, 28, 12); 
+}
+.row a{
+    font-size:14pt;
+    padding-top:10px;
+    margin-top:20px;
+}
+.mid h2{
+    margin-top:10px;
+    text-align: center;
+}
+.rolw{
+ margin-top:20px;
+}

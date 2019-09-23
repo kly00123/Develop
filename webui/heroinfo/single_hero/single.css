@@ -1,7 +1,8 @@
 .container{
+    margin-top:-10px;
+    margin-left:135px;
     width:1080px;
     border:1px solid #d22;
-    margin:0px auto;
 }
 .row{
     padding-left:200px;
@@ -9,4 +10,7 @@
 }
 .title_color{
     color:#98bf21;
+}
+*{
+    background-color: rgb(219, 240, 238);
 }
