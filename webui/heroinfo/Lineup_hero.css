@@ -28,11 +28,72 @@
 .right{
     padding-right:2px;
 }
+
 .drag {
     width: 100px;
     height: 100px;
     position: absolute;
     top: 0;
     left: 0;
+}
+.select-item {
+    background-color: #5bc0de;
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 6px 20px;
+    color: #fff;
+}
+
+.cursored {
+    cursor: default;
+}
+
+.people-content {
+    margin-top: 30px;
+}
+
+.drag-div {
+    border: 1px solid #5bc0de;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 800px;
+    cursor: pointer;
+}
+
+.select-project-item {
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.drag-people-label {
+    margin-bottom: 0;
+    padding-right: 10px;
+}
+.select-item {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.select-item .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* 定位 */
+    position: absolute;
+    z-index: 1;
+}
+
+.select-item:hover .tooltiptext {
+    visibility: visible;
 }
 

@@ -19,9 +19,7 @@
         <tr v-for="hero in info">
             <td>{{ hero.id }}</td>
             <td>{{ hero.hero_name }}</td>
-            <div class="row">
             <td>{{ hero.race }}</td>
-            </div>
             <td>{{ hero.pay }}</td>
             <td>
                 <button v-bind:disabled="hero.count === 0" v-on:click="hero.count-=1">-</button>
@@ -45,8 +43,7 @@
             },
             methods: {
                 totalPrice: function () {
-                    var totalP = 0;
-            
+                    var totalP = 0;          
                     for (var i = 0; i < this.info.length; i++) {
                         console.log(this.info);
                         totalP += this.info[i].pay * this.info[i].count;

@@ -1,6 +1,4 @@
-#body{
-    background-color:saddlebrown;
-}
+
 .navbar-wrapper{
     height:120px;
     background-color:saddlebrown;
@@ -8,8 +6,8 @@
 .row{ 
     text-align: center;
     background-color:rgb(53, 28, 12); 
-    margin-top:7px;
-    height:700px;
+    margin-left:0px;
+    height:800px;
     width:100%;
 }
 .row a{
@@ -23,11 +21,6 @@
 }
 .rolw{
  margin-top:20px;
-}
-.tab-content{
-    background-color:rgb(53, 28, 12); 
-}.nav-tabs{
-    margin-left:100px;
 }
 
 
