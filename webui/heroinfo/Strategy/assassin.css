@@ -1,13 +1,13 @@
 
 .navbar-wrapper{
-    height:120px;
+    height:170px;;
     background-color:saddlebrown;
 }
 .row{ 
     text-align: center;
-    background-color:rgb(53, 28, 12); 
+    background-color:rgb(136, 78, 42); 
     margin-left:0px;
-    height:800px;
+    height:100%;
     width:100%;
     padding-top:20px;
 }
@@ -23,5 +23,9 @@
 .rolw{
  margin-top:20px;
 }
-
-
+.container{
+    width:100%;
+}
+.blog-header{
+    text-align:center;
+}

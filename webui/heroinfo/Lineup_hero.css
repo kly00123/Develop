@@ -1,99 +1,27 @@
-.row{
-    width: 100px;   
-    height: 100px;   
-    background-color:red;  
-    border-radius: 50%;  
-    -moz-border-radius: 50%;      
-    -webkit-border-radius: 50%;
-}
-#boxx :nth-child(1){
-    width: 100px;
-    height: 100px;
-    background: blue;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-#boxx :nth-child(2){
-    width: 100px;
-    height: 100px;
-    background: red;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-.left{
-    padding-top:2px;
-}
-.right{
-    padding-right:2px;
-}
 
-.drag {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
+.navbar-wrapper{
+    height:120px;
+    background-color:saddlebrown;
 }
-.select-item {
-    background-color: #5bc0de;
-    display: inline-block;
+.row{ 
     text-align: center;
-    border-radius: 3px;
-    margin-right: 10px;
-    cursor: pointer;
-    padding: 6px 20px;
-    color: #fff;
+    background-color:rgb(53, 28, 12); 
+    margin-left:0px;
+    height:550px;
+    width:100%;
+    padding-top:20px;
 }
-
-.cursored {
-    cursor: default;
+.row a{
+    font-size:14pt;
+    padding-top:10px;
+    margin-top:20px;
 }
-
-.people-content {
-    margin-top: 30px;
-}
-
-.drag-div {
-    border: 1px solid #5bc0de;
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 800px;
-    cursor: pointer;
-}
-
-.select-project-item {
-    display: inline-block;
+.mid h2{
+    margin-top:10px;
     text-align: center;
-    border-radius: 3px;
+}
+.rolw{
+ margin-top:20px;
 }
 
-.drag-people-label {
-    margin-bottom: 0;
-    padding-right: 10px;
-}
-.select-item {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-
-.select-item .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: left;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* 定位 */
-    position: absolute;
-    z-index: 1;
-}
-
-.select-item:hover .tooltiptext {
-    visibility: visible;
-}
 

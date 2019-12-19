@@ -1,201 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
     <meta charset="utf-8">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
-    <script src="https://unpkg.com/vue-router"></script>
-    <script src="../jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
-    <link href="/webui/heroinfo/Lineup_hero.css" rel="stylesheet">
-    <title></title>
-    <style>
-        .drag {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        .select-item {
-            background-color: #5bc0de;
-            display: inline-block;
-            text-align: center;
-            border-radius: 3px;
-            margin-right: 10px;
-            cursor: pointer;
-            padding: 6px 20px;
-            color: #fff;
-        }
+    <title>阵容详情</title>
 
-        .cursored {
-            cursor: default;
-        }
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Lineup_hero.css" rel="stylesheet" type="text/css" />
 
-        .project-content,
-        .people-content {
-            margin: 30px 50px;
-        }
-
-        .people-content {
-            margin-top: 30px;
-        }
-
-        .drag-div {
-            border: 1px solid #5bc0de;
-            padding: 10px;
-            margin-bottom: 10px;
-            width: 800px;
-            cursor: pointer;
-        }
-
-        .select-project-item {
-            display: inline-block;
-            text-align: center;
-            border-radius: 3px;
-        }
-
-        .drag-people-label {
-            margin-bottom: 0;
-            padding-right: 10px;
-        }
-
-        .select-item {
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted black;
-        }
-
-        .select-item .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: black;
-            color: #fff;
-            text-align: left;
-            border-radius: 6px;
-            padding: 5px 0;
-
-            /* 定位 */
-            position: absolute;
-            z-index: 1;
-        }
-
-        .select-item:hover .tooltiptext {
-            visibility: visible;
-        }
-    </style>
-    <style>
-        .select-item {
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted black;
-        }
-
-        .select-item .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: black;
-            color: #fff;
-            text-align: left;
-            border-radius: 6px;
-            padding: 5px 0;
-
-            /* 定位 */
-            position: absolute;
-            z-index: 1;
-        }
-
-        .select-item:hover .tooltiptext {
-            visibility: visible;
-        }
-    </style>
 </head>
+<!-- NAVBAR
+================================================== -->
 
 <body>
-    <div class='drag-content' id="app">
-        <div class='project-content' v-on="{mouseenter:onEnter,mouseout:onOut}" @click="onClick">
-            <div class='select-item' draggable='true' @dragstart='drag($event)' v-for="hero in info"
-                :id="hero.hero_name">{{hero.hero_name}}<span
-                    class="tooltiptext">名称：{{hero.hero_name}}</br>种族：{{hero.race}}</br>价格:{{hero.pay}}</span>
-            </div>
+    <div class="navbar-wrapper">
+        <div class="container">
+            <nav class="navbar navbar-inverse navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">自走棋</a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="#about">资料库</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">游戏资料 <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">新闻资讯</a></li>
+                                    <li><a href="#">资料库</a></li>
+                                    <li><a href="#">攻略中心</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li class="dropdown-header">世界观</li>
+                                    <li><a href="#">种族</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
         </div>
-        <div class=drag-div @drop='drop($event)' @dragover='allowDrop($event)'>
-            <div id="tool_1" class="select_1">价格：</div>
-        </div>
-        <div class=drag-div @drop='drop($event)' @dragover='allowDrop($event)'>
-            <div id="tool_2" class="select_2">羁绊：</div>
-        </div>
-        <div class=drag-div @drop='drop($event)' @dragover='allowDrop($event)'>
-            <div id="tool_3" class="select_3">阵容：</div>
+        <div class="mid">
+            <text><h2>阵容查询</h2></text>
         </div>
     </div>
-    总价: <div id="c">0</div></br>
-    羁绊:</br>
-    阵容:
-    <script type="text/javascript">
-        var arr = [];
-        var tmpId;
-        var dom;
-        var totalp;
-        new Vue({
-            el: '#app',
-            data() {
-                return {
-                    info: null
-                }
-            },
+    <div class="row">
+        <div class="col-lg-3">
+            <img  src="../images/ci.png" alt="Generic placeholder image" width="150" height="100">
+            <h3><a href="./Strategy/assassin.html">刺客流</a></h3>
+        </div>
+        <div class="col-lg-3">
+            <img  src="../images/jingzhan.png" alt="Generic placeholder image" width="150" height="100">
+            <h3><a href="./fettets_total/fetters.html?race=human">精灵战</a></h3>
+        </div>
+        <div class="col-lg-3">
+            <img  src="../images/longfa.png" alt="Generic placeholder image" width="150"
+                height="100">
+                <h3><a href="./fettets_total/fetters.html">龙法</a></h3>
+        </div>
+        <div class="col-lg-3">
+            <img  src="../images/dijing.png" alt="Generic placeholder image" width="150" height="100">
+            <h3><a href="./fettets_total/fetters.html">地精流</a></h3>
+        </div>
+        <div class="col-lg-3">
+            <img  src="../images/shenfa.png" alt="Generic placeholder image" width="150" height="100">
+            <h3><a href="./fettets_total/fetters.html?race=evil%2Bhuman">神法</a></h3>
+        </div>
+        <div class="col-lg-3">
+                <img  src="../images/jiuzhan.png" alt="Generic placeholder image" width="150" height="100">
+                <h3><a href="./fettets_total/fetters.html?race=evil%2Bhuman">九战士</a></h3>
+            </div>
+            <div class="col-lg-3">
+                    <img  src="../images/falong.png" alt="Generic placeholder image" width="150" height="100">
+                    <h3><a href="./fettets_total/fetters.html?race=evil%2Bhuman">法龙流</a></h3>
+                </div>
+    </div><!-- /.row -->
 
-            methods:
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 
-            {
-                drag: function (event) {
-                    dom = event.currentTarget
-                    console.log("current:" + event.currentTarget.id);
-                    tmpId = event.currentTarget.id;
-                },
-                drop: function (event) {
-                    event.preventDefault();
-                    console.log("target:" + event.target.id);
-                    event.target.appendChild(dom);
-                    arr.push(tmpId);
-                    var calMoney=function(){
-                        for (var i = 0; i < arr.length; i++) {
-                            for (var j = 0; j < this.info.length; j++) {
-                                if (arr[i] = this.info[j].hero_name) {
-                                    totalp = this.info[j].pay + totalp;
-                                }
-                            }
-                        }
-                    }
-                    newMoney = calMoney(arr);
-                },
-                allowDrop: function (event) {
-                    event.preventDefault();
-                },
-                onClick: function () {
-                    console.log("onClick");
-                },
-                onEnter: function () {
-                    console.log("onEnter");
-                },
-                onOut: function () {
-                    console.log("onOut");
-                },
+        </div><!-- /.container -->
 
-            },
-            mounted() {
-                axios
-                    .post('http://127.0.0.1:3000/herocheck/check')
-                    .then(response => (this.info = response.data))
-                    .catch(function (error) { // 请求失败处理
-                        console.log(error);
-                    });
-            }
 
-        })
-    </script>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
 </html>
