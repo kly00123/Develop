@@ -1,43 +1,46 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title> 页面名称 </title>
-</head>
-<body>
-<script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-<div class="form-group">
-        <div id="putPageA">
-            <label for="action"
-                   class="col-sm-3 col-md-3 col-lg-3 control-label">菜单动作：<code>*</code></label>
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <select class="form-control" id="action" name="action">
-                    <option value="产品分类"
-                            <c:if test='${model.action== "产品分类"}'>selected</c:if> >产品分类
-                    </option>
-                    <option value="限时抢购"
-                            <c:if test='${model.action== "限时抢购"}'>selected</c:if> >限时抢购
-                    </option>
-                   
-                </select>
-            </div>
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+        <style>
+            span{
+                padding: 20rpx;
+                border: 1px solid #000;
+            }
+        </style>
+    </head>
+    <body>
+         
+        <div id="app">
+            <p>{{connum}}</p>
+            <!-- 方法一：没点击一次，connum数据+1 -->
+            <span @click="handleClick">点我哈</span>
+             
+            <!-- 方法二：触发监听事件，每点击一次，connum数据+1 -->
+            <button @click="connum++">点击我监听</button>
         </div>
-        <div id="putPageU">
-            <label for="action"
-                   class="col-sm-3 col-md-3 col-lg-3 control-label">H5链接：<code>*</code></label>
-            <div class="col-sm-6 col-md-6 col-lg-6">
-                <input type="text" class="form-control" name="action" value="${model.action}"
-                       placeholder="请输入H5链接">
-            </div>
-        </div>
-    </div>
-<script>
-    var action = $("#putPageA").find("[name='action']").val();
-if(skipType=='APP'){
-    model.action = action;
-}else{
-    model.action = $("#putPageU").find("[name='action']").val();
-}
-</script>>
-</body>
+        <script>
+            var vm=new Vue({
+                el:"#app",
+                data:{
+                    connum:0
+                },
+                // 点击事件,每触发一次点击事件,connum加1
+                methods:{handleClick:function(connum){
+                         this.connum+=1;
+            }
+                    },
+				
+            // 监听点击事件
+            watch:{                 
+			handleClick:function(connum){
+                         this.connum+=1;
+            }
+			}
+			  });
+        </script>
+    </body>
 </html>

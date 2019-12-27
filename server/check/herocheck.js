@@ -24,7 +24,7 @@ router.post('/herocheck', function (req, res) {
     final_res = [];
     data = JSON.stringify(result);
     Herolist = JSON.parse(data);
-    console.log(Herolist);
+    console.log(req.body);
     if ('hero_id' in req.body) {
       for (var i = 0; i < Herolist.length; i++) {
         if (Herolist[i].hero_id == req.body.hero_id) {
@@ -135,7 +135,9 @@ router.post('/paycheck', function (req, res) {
       console.log('[SELECT ERROR] - ', err.message);
       return;
     }
+    console.log(result);
     data = JSON.parse(result);
+    console.log(data);
     // console.log(data.herolist.length);
     arr_hero = [];
     final_arr = [];
@@ -162,8 +164,24 @@ router.post('/fetterscheck', function (req, res) {
   });
 })
 
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
+router.post('/fetter', function (req, res, next) {
+  var connection = mysql.createConnection({
+    host: '148.70.173.75',
+    user: 'root',
+    password: 'testapp123',
+    port: '3306',
+    database: 'self_chess'
+  });
+  var sql = "select * from fetter";
+  connection.query(sql, function (err, result) {
+    if (err) {
+      console.log('[SELECT ERROR] - ', err.message);
+      return;
+    }
+    data = JSON.stringify(result);
+    fetterlist = JSON.parse(data);
+    res.send(fetterlist);
+  })
 });
 
 router.post('/check', function (req, res, next) {
@@ -185,4 +203,43 @@ router.post('/check', function (req, res, next) {
     res.send(herolist);
   })
 });
+
+router.post('/listcheck', function (req, res) {
+  var connection = mysql.createConnection({
+    host: '148.70.173.75',
+    user: 'root',
+    password: 'testapp123',
+    port: '3306',
+    database: 'self_chess'
+  });
+  //console.log(typeof(req.body.hero_name));
+  var sql = 'select * from hero_info';
+  connection.query(sql, function (err, result) {
+    //console.log(sql);
+    if (err) {
+      console.log('[SELECT ERROR] - ', err.message);
+      return;
+    }
+   var list = [];
+    final_arr = [];
+    total_pay = 0;
+    count = 0;
+    var a;
+    data = JSON.stringify(result);
+    Herolist = JSON.parse(data);
+    for (var i in req.body){
+      list.push(req.body[i]);
+    }
+    for (var i = 0; i < list[0].length; i++) {
+      for (var j = 0; j < Herolist.length; j++) {
+        if (Herolist[j].hero_name == list[0][i]) {
+          count = Herolist[j].pay + count;
+        }
+      }
+    }
+    count = JSON.stringify(count);
+    console.log(count);
+    res.send(count);
+  });
+})
 module.exports = router;

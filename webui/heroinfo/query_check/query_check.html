@@ -1,59 +1,180 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
-<script src="https://unpkg.com/vue-router"></script>
-<script src="../query_check/query_check.js"></script>
-<link rel="stylesheet" type="text/css" href="query_check.css">
-<div id="app">
-    <table>
-        <tr>
-            <th>英雄ID</th>
-            <th>英雄名称</th>
-            <th>英雄种族</th>
-            <th>英雄价格</th>
-            <th>购买数量</th>
-            <th>操作</th>
-        </tr>
-        <tr v-for="hero in info">
-            <td>{{ hero.id }}</td>
-            <td>{{ hero.hero_name }}</td>
-            <td>{{ hero.race }}</td>
-            <td>{{ hero.pay }}</td>
-            <td>
-                <button v-bind:disabled="hero.count === 0" v-on:click="hero.count-=1">-</button>
-                {{hero.count}}
-                <button v-on:click="hero.count+=1">+</button>
-            </td>
-            <td>
-                <button v-on:click="hero.count=0">移除</button>
-            </td>
-        </tr>
-    </table>
-    总价:{{totalPrice()}}
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+    <style>
+        .drag {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .select-item {
+            background-color: #5bc0de;
+            display: inline-block;
+            text-align: center;
+            border-radius: 3px;
+            margin-right: 10px;
+            cursor: pointer;
+            padding: 6px 20px;
+            color: #fff;
+        }
+
+        .cursored {
+            cursor: default;
+        }
+
+        .project-content,
+        .people-content {
+            margin: 30px 50px;
+        }
+
+        .people-content {
+            margin-top: 30px;
+        }
+
+        .drag-div {
+            border: 1px solid #5bc0de;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 800px;
+            cursor: pointer;
+        }
+
+        .select-project-item {
+            display: inline-block;
+            text-align: center;
+            border-radius: 3px;
+        }
+
+        .drag-people-label {
+            margin-bottom: 0;
+            padding-right: 10px;
+        }
+
+        .select-item {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .select-item .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* 定位 */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .select-item:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
+    <style>
+        .select-item {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .select-item .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* 定位 */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .select-item:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='drag-content' id="app">
+        <div class='project-content' v-on="{mouseenter:onEnter,mouseout:onOut}" @click="onClick">
+            <div class='select-item' draggable='true' @dragstart='drag($event)' v-for="hero in info"
+                :id="hero.hero_name">{{hero.hero_name}}<span
+                    class="tooltiptext">名称：{{hero.hero_name}}</br>种族：{{hero.race}}</br>价格:{{hero.pay}}</span>
+            </div>
+        </div>
+        <div class=drag-div @drop='drop($event)' @dragover='allowDrop($event)'>
+            <div class="button">阵容</div>
+            <div id="tool_1" class="select_1"></div>
+        </div>  
+        <div>
+            金币：{{infomate}}
+            </div>
     </div>
     <script type="text/javascript">
+        var arr = [];
+        var tmpId;
+        var dom;
+        var totalp;
+        list = new Array();
         new Vue({
             el: '#app',
             data() {
                 return {
-                    info: null
+                    info: null,
+                    infomate:null
                 }
             },
-            methods: {
-                totalPrice: function () {
-                    var totalP = 0;          
-                    for (var i = 0; i < this.info.length; i++) {
-                        console.log(this.info);
-                        totalP += this.info[i].pay * this.info[i].count;
-                    }
-                    return totalP;
-                }
+            methods:
+            {
+                drag: function (event) {
+                    dom = event.currentTarget
+                    console.log("current:" + event.currentTarget.id);
+                    tmpId = event.currentTarget.id;
+                },
+                drop: function (event) {
+                    console.log("target:" + event.target.id);
+                    event.target.appendChild(dom);
+                    list.push(tmpId);
+                    console.log("list:" + list);
+                    axios.post('http://127.0.0.1:3000/herocheck/listcheck', {
+                        hero_arr: list
+                    })
+                        .then(response => (this.infomate = response.data))   
+                        .catch(function (error) { // 请求失败处理
+                            console.log(error);
+                        });
+                },
+                allowDrop: function (event) {
+                    event.preventDefault();
+                },
+                onClick: function () {
+                    console.log("onClick");
+                },
+                onEnter: function () {
+                    console.log("onEnter");
+                },
+                onOut: function () {
+                    console.log("onOut");
+                },
             },
             mounted() {
-                axios
-                    .post('http://127.0.0.1:3000/herocheck/check')
+                axios.post('http://127.0.0.1:3000/herocheck/check', {
+                })
                     .then(response => (this.info = response.data))
                     .catch(function (error) { // 请求失败处理
                         console.log(error);
@@ -62,201 +183,6 @@
 
         })
     </script>
-    <head>
-            <meta charset="utf-8">
-            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-            <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
-            <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
-            <script src="https://unpkg.com/vue-router"></script>
-            <script src="../jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
-            <link href="/webui/heroinfo/Lineup_hero.css" rel="stylesheet">
-            <title></title>
-            <style>
-                .drag {
-                    width: 100px;
-                    height: 100px;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-        
-                .select-item {
-                    background-color: #5bc0de;
-                    display: inline-block;
-                    text-align: center;
-                    border-radius: 3px;
-                    margin-right: 10px;
-                    cursor: pointer;
-                    padding: 6px 20px;
-                    color: #fff;
-                } 
-        
-                .cursored {
-                    cursor: default;
-                }
-        
-                .project-content,
-                .people-content {
-                    margin: 30px 50px;
-                }
-        
-                .people-content {
-                    margin-top: 30px;
-                }
-        
-                .drag-div {
-                    border: 1px solid #5bc0de;
-                    padding: 10px;
-                    margin-bottom: 10px;
-                    width: 800px;
-                    cursor: pointer;
-                }
-        
-                .select-project-item {
-                    display: inline-block;
-                    text-align: center;
-                    border-radius: 3px;
-                }
-        
-                .drag-people-label {
-                    margin-bottom: 0;
-                    padding-right: 10px;
-                }
-        
-                .select-item {
-                    position: relative;
-                    display: inline-block;
-                    border-bottom: 1px dotted black;
-                }
-        
-                .select-item .tooltiptext {
-                    visibility: hidden;
-                    width: 120px;
-                    background-color: black;
-                    color: #fff;
-                    text-align: left;
-                    border-radius: 6px;
-                    padding: 5px 0;
-        
-                    /* 定位 */
-                    position: absolute;
-                    z-index: 1;
-                }
-        
-                .select-item:hover .tooltiptext {
-                    visibility: visible;
-                }
-            </style>
-            <style>
-                .select-item {
-                    position: relative;
-                    display: inline-block;
-                    border-bottom: 1px dotted black;
-                }
-        
-                .select-item .tooltiptext {
-                    visibility: hidden;
-                    width: 120px;
-                    background-color: black;
-                    color: #fff;
-                    text-align: left;
-                    border-radius: 6px;
-                    padding: 5px 0;
-        
-                    /* 定位 */
-                    position: absolute;
-                    z-index: 1;
-                }
-        
-                .select-item:hover .tooltiptext {
-                    visibility: visible;
-                }
-            </style>
-        </head>
-        
-        <body>
-            <div class='drag-content' id="app">
-                <div class='project-content' v-on="{mouseenter:onEnter,mouseout:onOut}" @click="onClick">
-                    <div class='select-item' draggable='true' @dragstart='drag($event)' v-for="hero in info"
-                        :id="hero.hero_name">{{hero.hero_name}}<span
-                            class="tooltiptext">名称：{{hero.hero_name}}</br>种族：{{hero.race}}</br>价格:{{hero.pay}}</span>
-                    </div>
-                </div>
-                <div class=drag-div @drop='drop($event)' @dragover='allowDrop($event)'>
-                    <div id="tool_1" class="select_1">价格：</div>
-                </div>
-                <div class=drag-div @drop='drop($event)' @dragover='allowDrop($event)'>
-                    <div id="tool_2" class="select_2">羁绊：</div>
-                </div>
-                <div class=drag-div @drop='drop($event)' @dragover='allowDrop($event)'>
-                    <div id="tool_3" class="select_3">阵容：</div>
-                </div>
-            </div>
-            总价: <div id="c">0</div></br>
-            羁绊:</br>
-            阵容:
-            <script type="text/javascript">
-                var arr = [];
-                var tmpId;
-                var dom;
-                var totalp;
-                new Vue({
-                    el: '#app',
-                    data() {
-                        return {
-                            info: null
-                        }
-                    },
-        
-                    methods:
-        
-                    {
-                        drag: function (event) {
-                            dom = event.currentTarget
-                            console.log("current:" + event.currentTarget.id);
-                            tmpId = event.currentTarget.id;
-                        },
-                        drop: function (event) {
-                            event.preventDefault();
-                            console.log("target:" + event.target.id);
-                            event.target.appendChild(dom);
-                            arr.push(tmpId);
-                            var calMoney=function(){
-                                for (var i = 0; i < arr.length; i++) {
-                                    for (var j = 0; j < this.info.length; j++) {
-                                        if (arr[i] = this.info[j].hero_name) {
-                                            totalp = this.info[j].pay + totalp;
-                                        }
-                                    }
-                                }
-                            }
-                            newMoney = calMoney(arr);
-                        },
-                        allowDrop: function (event) {
-                            event.preventDefault();
-                        },
-                        onClick: function () {
-                            console.log("onClick");
-                        },
-                        onEnter: function () {
-                            console.log("onEnter");
-                        },
-                        onOut: function () {
-                            console.log("onOut");
-                        },
-        
-                    },
-                    mounted() {
-                        axios
-                            .post('http://127.0.0.1:3000/herocheck/check')
-                            .then(response => (this.info = response.data))
-                            .catch(function (error) { // 请求失败处理
-                                console.log(error);
-                            });
-                    }
-        
-                })
-            </script>
-        </body>
-        
-    </html>
+</body>
+
+</html>
